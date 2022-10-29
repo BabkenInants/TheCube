@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
+    public GameObject PauseCanvas;
     public void LoadLevel(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex);

@@ -7,17 +7,20 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     public Text timerText;
-    public GameObject Star1;
-    public GameObject Star2;
-    public GameObject Star3;
+    public GameObject[] Stars;
     public Text MoneyText;
+    [Header("Time values")]
+    public Vector2[] LevelTime; //l1 - 10,15; l2 - 15,20; l3 - 10,15; l4 - 10,15; l5 - 15,20
 
     private int sec = 0;
     private int min = 0;
     public int number = 1;
     private int time;
     private int MoneyToSave;
-    private int MoneyBefore; 
+    private int MoneyBefore;
+    private int result;
+    private int currentLevel;
+    private int lastSaveStars;
 
     void Start()
     {
@@ -56,249 +59,51 @@ public class Timer : MonoBehaviour
     {
         number = 1;
     }
-    public void Stop()
+    public void Stop() 
     {
         number = 0;
-        //level1time
-        if (time <= 10 && SceneManager.GetActiveScene().buildIndex == 2 && PlayerPrefs.GetInt("Level1") < 3)
+        bool levelIdentiied = false;
+        for (int i = 2; !levelIdentiied; i++)
         {
-            PlayerPrefs.SetInt("Level1", 3);
+            if (SceneManager.GetActiveScene().buildIndex == i)
+            {
+                currentLevel = i - 1;
+                levelIdentiied = true;
+                Debug.Log("currentLevel: " + currentLevel);
+                Debug.Log(LevelTime[currentLevel - 1]);
+            }else
+            {
+                continue;
+            }
         }
-        if (time <= 15 && time >10 && SceneManager.GetActiveScene().buildIndex == 2 && PlayerPrefs.GetInt("Level1") < 2)
+        lastSaveStars = PlayerPrefs.GetInt("Level1" + currentLevel);
+        if (time <= LevelTime[currentLevel - 1].x) {result = 3;}
+        if (time <= LevelTime[currentLevel - 1].y && time > LevelTime[currentLevel - 1].x) {result = 2;}
+        if (time > LevelTime[currentLevel - 1].y) {result = 1;}
+        Debug.Log("result = " + result);
+        Debug.Log("lastSaveStars = " + lastSaveStars);
+
+        if (lastSaveStars < result)
         {
-            PlayerPrefs.SetInt("Level1", 2);
+            switch (result)
+            {
+                case 3: PlayerPrefs.SetInt("Level" + (currentLevel), 3); break;
+                case 2: PlayerPrefs.SetInt("Level" + (currentLevel), 2); break;
+                case 1: PlayerPrefs.SetInt("Level" + (currentLevel), 1); break;
+            }
         }
-        if (time > 15 && SceneManager.GetActiveScene().buildIndex == 2 && PlayerPrefs.GetInt("Level1") < 2)
+        switch (result)
         {
-            PlayerPrefs.SetInt("Level1", 1);
+            case 3: MoneyToSave = 20; break;
+            case 2: MoneyToSave = 10; break;
+            case 1: MoneyToSave = 5; break;
         }
 
-        //level2time
-        if (time <= 15 && SceneManager.GetActiveScene().buildIndex == 3 && PlayerPrefs.GetInt("Level2") < 3)
+        for (int i = 0; i < result; i++)
         {
-            PlayerPrefs.SetInt("Level2", 3);
+            Stars[i].SetActive(true);
         }
-        if (time <= 20 && time >15 && SceneManager.GetActiveScene().buildIndex == 3 && PlayerPrefs.GetInt("Level2") < 2)
-        {
-            PlayerPrefs.SetInt("Level2", 2);
-        }
-        if (time > 20 && SceneManager.GetActiveScene().buildIndex == 3 && PlayerPrefs.GetInt("Level2") < 2)
-        {
-            PlayerPrefs.SetInt("Level2", 1);
-        }
-
-        //level3time
-        if (time <= 10 && SceneManager.GetActiveScene().buildIndex == 4 && PlayerPrefs.GetInt("Level3") < 3)
-        {
-            PlayerPrefs.SetInt("Level3", 3);
-        }
-        if (time <= 15 && time >10 && SceneManager.GetActiveScene().buildIndex == 4 && PlayerPrefs.GetInt("Level3") < 2)
-        {
-            PlayerPrefs.SetInt("Level3", 2);
-        }
-        if (time > 15 && SceneManager.GetActiveScene().buildIndex == 4 && PlayerPrefs.GetInt("Level3") < 2)
-        {
-            PlayerPrefs.SetInt("Level3", 1);
-        }
-
-        //level4time
-        if (time <= 10 && SceneManager.GetActiveScene().buildIndex == 5 && PlayerPrefs.GetInt("Level4") < 3)
-        {
-            PlayerPrefs.SetInt("Level4", 3);
-        }
-        if (time <= 15 && time >10 && SceneManager.GetActiveScene().buildIndex == 5 && PlayerPrefs.GetInt("Level4") < 2)
-        {
-            PlayerPrefs.SetInt("Level4", 2);
-        }
-        if (time > 15 && SceneManager.GetActiveScene().buildIndex == 5 && PlayerPrefs.GetInt("Level4") < 2)
-        {
-            PlayerPrefs.SetInt("Level4", 1);
-        }
-
-        //level5time
-        if (time <= 15 && SceneManager.GetActiveScene().buildIndex == 6 && PlayerPrefs.GetInt("Level5") < 3)
-        {
-            PlayerPrefs.SetInt("Level5", 3);
-        }
-        if (time <= 20 && time >15 && SceneManager.GetActiveScene().buildIndex == 6 && PlayerPrefs.GetInt("Level5") < 2)
-        {
-            PlayerPrefs.SetInt("Level5", 2);
-        }
-        if (time > 20 && SceneManager.GetActiveScene().buildIndex == 6 && PlayerPrefs.GetInt("Level5") < 2)
-        {
-            PlayerPrefs.SetInt("Level5", 1);
-        }
-        
-        //Level1Stars
-        if (time <= 10 && SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(true);
-            Star3.SetActive(true);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 20 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "20$";
-        }
-        
-        if (time <= 15 && time > 10 && SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(true);
-            Star3.SetActive(false);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 10 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "10$";
-        }
-        
-        if (time > 15 && SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(false);
-            Star3.SetActive(false);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 5 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "5$";
-        }
-        
-        //Level2Stars
-        if (time <= 15 && SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(true);
-            Star3.SetActive(true);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 20 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "20$";
-        }
-        
-        if (time <= 20 && time > 15 && SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(true);
-            Star3.SetActive(false);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 10 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "10$";
-        }
-        
-        if (time > 20 && SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(false);
-            Star3.SetActive(false);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 5 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "5$";
-        }
-        
-        //Level3Stars
-        if (time <= 10 && SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(true);
-            Star3.SetActive(true);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 20 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "20$";
-        }
-        
-        if (time <= 15 && time > 10 && SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(true);
-            Star3.SetActive(false);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 10 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "10$";
-        }
-        
-        if (time > 15 && SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(false);
-            Star3.SetActive(false);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 5 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "5$";
-        }
-        
-        //Level4Stars
-        if (time <= 10 && SceneManager.GetActiveScene().buildIndex == 5)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(true);
-            Star3.SetActive(true);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 20 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "20$";
-        }
-        
-        if (time <= 15 && time > 10 && SceneManager.GetActiveScene().buildIndex == 5)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(true);
-            Star3.SetActive(false);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 10 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "10$";
-        }
-        
-        if (time > 15 && SceneManager.GetActiveScene().buildIndex == 5)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(false);
-            Star3.SetActive(false);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 5 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "5$";
-        }
-        
-        //Level5Stars
-        if (time <= 15 && SceneManager.GetActiveScene().buildIndex == 6)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(true);
-            Star3.SetActive(true);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 20 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "20$";
-        }
-        
-        if (time <= 20 && time > 15 && SceneManager.GetActiveScene().buildIndex == 6)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(true);
-            Star3.SetActive(false);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 10 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "10$";
-        }
-        
-        if (time > 20 && SceneManager.GetActiveScene().buildIndex == 6)
-        {
-            Star1.SetActive(true);
-            Star2.SetActive(false);
-            Star3.SetActive(false);
-            MoneyBefore = PlayerPrefs.GetInt("Money");
-            MoneyToSave = 5 + MoneyBefore;
-            PlayerPrefs.SetInt("Money", MoneyToSave);
-            MoneyText.text = "5$";
-        }
+        PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + MoneyToSave);
+        MoneyText.text = MoneyToSave + "$";
     }
-
-
 }

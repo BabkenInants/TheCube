@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Input.acceleration);
+        //Debug.Log(Input.acceleration);
         if (PlayerPrefs.GetInt("DisableMovement") == 1)
         {
             Speed = 0f;

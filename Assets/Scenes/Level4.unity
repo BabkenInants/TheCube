@@ -374,7 +374,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1202136961}
         m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
         m_MethodName: PlayAgain
         m_Mode: 1
@@ -441,7 +441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &46608043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b77f2c84a621ef34983263fd17be1da5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fd1359cbf093544abf47f3a202205d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1202136961}
         m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
         m_MethodName: BackToMainMenu
         m_Mode: 1
@@ -962,7 +962,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1202136961}
         m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
         m_MethodName: NextLevel
         m_Mode: 1
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1202136961}
         m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
         m_MethodName: PauseButton
         m_Mode: 1
@@ -2352,7 +2352,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1202136961}
         m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
         m_MethodName: BackToMainMenu
         m_Mode: 1
@@ -2568,7 +2568,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1202136961}
         m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
         m_MethodName: ResumeButton
         m_Mode: 1
@@ -3239,8 +3239,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FinishMenu, Assembly-CSharp
+      - m_Target: {fileID: 1202136961}
+        m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
         m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
@@ -3301,6 +3301,7 @@ GameObject:
   - component: {fileID: 1202136958}
   - component: {fileID: 1202136957}
   - component: {fileID: 1202136956}
+  - component: {fileID: 1202136961}
   - component: {fileID: 1202136960}
   m_Layer: 5
   m_Name: Canvas
@@ -3404,11 +3405,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 926643978}
-  Star1: {fileID: 0}
-  Star2: {fileID: 0}
-  Star3: {fileID: 0}
-  MoneyText: {fileID: 0}
+  Stars:
+  - {fileID: 46608042}
+  - {fileID: 1477682438}
+  - {fileID: 1471719959}
+  MoneyText: {fileID: 1091262571}
+  LevelTime:
+  - {x: 10, y: 15}
+  - {x: 15, y: 20}
+  - {x: 10, y: 15}
+  - {x: 10, y: 15}
+  - {x: 15, y: 20}
   number: 1
+--- !u!114 &1202136961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202136955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4321d56c959aa11428d8b687b1ac5f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseCanvas: {fileID: 703527912}
+  TimerCanvas: {fileID: 1202136960}
 --- !u!1001 &1236245345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3662,7 +3684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1471719960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3702,7 +3724,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b77f2c84a621ef34983263fd17be1da5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fd1359cbf093544abf47f3a202205d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3737,7 +3759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1477682439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3777,7 +3799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b77f2c84a621ef34983263fd17be1da5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fd1359cbf093544abf47f3a202205d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

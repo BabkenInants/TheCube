@@ -191,6 +191,10 @@ PrefabInstance:
       value: How To Play
       objectReference: {fileID: 0}
     - target: {fileID: 4025430424919328857, guid: e2f9c8f44449c6344a206194fe84bfcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025430424919328857, guid: e2f9c8f44449c6344a206194fe84bfcf, type: 3}
       propertyPath: m_TagString
       value: HTP
       objectReference: {fileID: 0}
