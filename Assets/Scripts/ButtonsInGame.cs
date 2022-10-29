@@ -28,15 +28,18 @@ public class ButtonsInGame : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1;
     }
 
     public void PlayAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
 
     public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1;
     }
 }

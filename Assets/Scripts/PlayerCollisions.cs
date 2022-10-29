@@ -25,9 +25,9 @@ public class PlayerCollisions : MonoBehaviour
         switch (collisioninfo.collider.tag)
         {
             case "Play": SceneManager.LoadScene("Choose level"); break;
-            case "Skins": SkinCanvas.SetActive(true); break;
-            case "Settings": SettingsCanvas.SetActive(true); break;
-            case "HTP": HTPCanvas.SetActive(true); break;
+            case "Skins": SkinCanvas.SetActive(true); PlayerControllerScript.enabled = false; break;
+            case "Settings": SettingsCanvas.SetActive(true); PlayerControllerScript.enabled = false; break;
+            case "HTP": HTPCanvas.SetActive(true); PlayerControllerScript.enabled = false; break;
         }
 
         //Finish
@@ -47,16 +47,23 @@ public class PlayerCollisions : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape) && SettingsCanvas.activeSelf)
         {
             SettingsCanvas.SetActive(false);
+            PlayerControllerScript.enabled = true;
         }
 
         if(Input.GetKeyDown(KeyCode.Escape) && HTPCanvas.activeSelf)
         {
             HTPCanvas.SetActive(false);
+            PlayerControllerScript.enabled = true;
         }
 
         if(Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex == 1)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+        if (Input.GetKey(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SkinCanvas.SetActive(false);
+            PlayerControllerScript.enabled = true;
         }
     }
 }

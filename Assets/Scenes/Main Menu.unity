@@ -229,7 +229,7 @@ PrefabInstance:
       objectReference: {fileID: 197032932}
     - target: {fileID: 6118243196720915394, guid: 23279e7f80d436e4f93012bd99de2e8c, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6118243196720915394, guid: 23279e7f80d436e4f93012bd99de2e8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -293,6 +293,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23279e7f80d436e4f93012bd99de2e8c, type: 3}
+--- !u!1 &27612595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6118243196720915405, guid: 23279e7f80d436e4f93012bd99de2e8c, type: 3}
+  m_PrefabInstance: {fileID: 27612594}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &46539513
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +501,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7376144852101820573, guid: 23279e7f80d436e4f93012bd99de2e8c, type: 3}
   m_PrefabInstance: {fileID: 27612594}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 27612595}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f87ec3c9bee620468592a5a89f95e55, type: 3}
@@ -962,7 +967,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 757320295}
         m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
         m_MethodName: BlueButton
         m_Mode: 1
@@ -1612,7 +1617,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -2796170477889301711, guid: 56680d6a8b6804a4889d3153a26ce19c, type: 3}
   m_PrefabInstance: {fileID: 1290520729}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1290520730}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f87ec3c9bee620468592a5a89f95e55, type: 3}
@@ -1888,7 +1893,7 @@ PrefabInstance:
       objectReference: {fileID: 1838597572}
     - target: {fileID: 8093903173150359111, guid: b19128d24159a2643833f4f92f8ed436, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8093903173150359111, guid: b19128d24159a2643833f4f92f8ed436, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1952,6 +1957,11 @@ PrefabInstance:
       objectReference: {fileID: 952714132}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19128d24159a2643833f4f92f8ed436, type: 3}
+--- !u!1 &688569088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8093903173150359132, guid: b19128d24159a2643833f4f92f8ed436, type: 3}
+  m_PrefabInstance: {fileID: 688569087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &757320290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,6 +1974,8 @@ GameObject:
   - component: {fileID: 757320293}
   - component: {fileID: 757320292}
   - component: {fileID: 757320291}
+  - component: {fileID: 757320296}
+  - component: {fileID: 757320295}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2052,12 +2064,71 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &757320295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757320290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c358aed3dfad6ff47be4d35c4a688413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NotEnoughtMoney: {fileID: 319475230}
+  PlayerSkins:
+  - {fileID: 2046344412}
+  - {fileID: 1290520730}
+  - {fileID: 1157900202}
+  - {fileID: 27612595}
+  - {fileID: 688569088}
+  SkinTicks:
+  - {fileID: 1103612219}
+  - {fileID: 2091860945}
+  - {fileID: 953168315}
+  - {fileID: 1497188647}
+  - {fileID: 606961748}
+  SkinPadlocks:
+  - {fileID: 0}
+  - {fileID: 1840182742}
+  - {fileID: 866857697}
+  - {fileID: 1537527276}
+  - {fileID: 942892597}
+  CostOfSkins: 0000000064000000640000006400000064000000
+  CostOfSkinsAsGO:
+  - {fileID: 0}
+  - {fileID: 1026015611}
+  - {fileID: 133264185}
+  - {fileID: 806004692}
+  - {fileID: 1575191505}
+  SkinCanvas: {fileID: 808148978}
+  SettingsCanvas: {fileID: 952714132}
+  MoneyText: {fileID: 1458255481}
+--- !u!114 &757320296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757320290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465b6912e84583844bc4c3f89599e8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinGameObjects:
+  - {fileID: 2046344412}
+  - {fileID: 1290520730}
+  - {fileID: 1157900202}
+  - {fileID: 27612595}
+  - {fileID: 688569088}
 --- !u!114 &759945064 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1545976774762533469, guid: abbed2a9523356240ab17c5762f1769b, type: 3}
   m_PrefabInstance: {fileID: 2046344411}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2046344412}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f87ec3c9bee620468592a5a89f95e55, type: 3}
@@ -2097,7 +2168,7 @@ RectTransform:
   - {fileID: 1497188648}
   - {fileID: 806004693}
   m_Father: {fileID: 808148982}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2148,7 +2219,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 757320295}
         m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
         m_MethodName: YellowButton
         m_Mode: 1
@@ -2371,9 +2442,9 @@ RectTransform:
   - {fileID: 1877780291}
   - {fileID: 1593889182}
   - {fileID: 274957184}
-  - {fileID: 1657271645}
   - {fileID: 2107964408}
   - {fileID: 781318647}
+  - {fileID: 1657271645}
   - {fileID: 1458255480}
   - {fileID: 319475231}
   m_Father: {fileID: 0}
@@ -3466,6 +3537,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11961cc5d0040154690fb236168f539b, type: 3}
+--- !u!1 &1157900202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8948008987765321223, guid: 11961cc5d0040154690fb236168f539b, type: 3}
+  m_PrefabInstance: {fileID: 1157900201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1176708546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3721,6 +3797,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56680d6a8b6804a4889d3153a26ce19c, type: 3}
+--- !u!1 &1290520730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6362366154285194500, guid: 56680d6a8b6804a4889d3153a26ce19c, type: 3}
+  m_PrefabInstance: {fileID: 1290520729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1458255479
 GameObject:
   m_ObjectHideFlags: 0
@@ -3805,7 +3886,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -6778190730589665838, guid: 11961cc5d0040154690fb236168f539b, type: 3}
   m_PrefabInstance: {fileID: 1157900201}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1157900202}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f87ec3c9bee620468592a5a89f95e55, type: 3}
@@ -4420,7 +4501,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 757320295}
         m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
         m_MethodName: GreenButton
         m_Mode: 1
@@ -4647,7 +4728,7 @@ RectTransform:
   - {fileID: 606961749}
   - {fileID: 1575191506}
   m_Father: {fileID: 808148982}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -4698,7 +4779,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 757320295}
         m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
         m_MethodName: RedButton
         m_Mode: 1
@@ -5064,7 +5145,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7909561927234248545, guid: b19128d24159a2643833f4f92f8ed436, type: 3}
   m_PrefabInstance: {fileID: 688569087}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 688569088}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f87ec3c9bee620468592a5a89f95e55, type: 3}
@@ -5699,6 +5780,11 @@ PrefabInstance:
       objectReference: {fileID: 759945064}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abbed2a9523356240ab17c5762f1769b, type: 3}
+--- !u!1 &2046344412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4477332397515621478, guid: abbed2a9523356240ab17c5762f1769b, type: 3}
+  m_PrefabInstance: {fileID: 2046344411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2046424333
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,7 +5987,7 @@ RectTransform:
   - {fileID: 953168316}
   - {fileID: 133264186}
   m_Father: {fileID: 808148982}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -5952,7 +6038,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 757320295}
         m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
         m_MethodName: OrangeButton
         m_Mode: 1
