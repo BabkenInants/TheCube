@@ -2259,6 +2259,7 @@ MonoBehaviour:
   - {fileID: 806004692}
   - {fileID: 1575191505}
   MoneyText: {fileID: 1458255481}
+  LevelCount: 5
 --- !u!114 &757320296
 MonoBehaviour:
   m_ObjectHideFlags: 0
