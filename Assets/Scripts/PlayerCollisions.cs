@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerCollisions : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class PlayerCollisions : MonoBehaviour
     public PlayerController PlayerControllerScript;
     public GameObject Blocker;
     public Timer TimerCanvas;
+    public GameObject SkinCanvas;
+    public GameObject SettingsCanvas;
+    public GameObject HTPCanvas;
+    public Text BrilliantText;
+    
+    private int Brilliant;
     private Timer TimerScript;
-    [SerializeField]
-    private GameObject SkinCanvas;
-    [SerializeField]
-    private GameObject SettingsCanvas;
-    [SerializeField]
-    private GameObject HTPCanvas;
 
     
     private void OnCollisionEnter(Collision collisioninfo)
@@ -40,6 +41,14 @@ public class PlayerCollisions : MonoBehaviour
             TimerScript.Stop();
             int scene = SceneManager.GetActiveScene().buildIndex - 1;
             PlayerPrefs.SetInt("Level" + scene + "Complete", 1);  
+            PlayerPrefs.SetInt("Brilliants", Brilliant);
+        }
+        
+        //Brilliants
+        if (collisioninfo.collider.tag == "Brilliant")
+        {
+            Brilliant++;
+            Destroy(collisioninfo.collider.gameObject);
         }
     }
 
@@ -67,5 +76,6 @@ public class PlayerCollisions : MonoBehaviour
             Blocker.SetActive(false);
             PlayerControllerScript.enabled = true;
         }
+        BrilliantText.text = Brilliant.ToString();
     }
 }
