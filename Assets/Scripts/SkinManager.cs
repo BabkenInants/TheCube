@@ -2,20 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SkinManager : MonoBehaviour
 {
+    [Header("Shop")]
     public GameObject NotEnoughtMoney;
     public GameObject[] PlayerSkins; //Green, Blue, Orange, Yellow, Red
     public GameObject[] SkinTicks; //Green, Blue, Orange, Yellow, Red
     public GameObject[] SkinPadlocks; //Green, Blue, Orange, Yellow, Red
     public int[] CostOfSkins; //Green, Blue, Orange, Yellow, Red
     public GameObject[] CostOfSkinsAsGO; //Green, Blue, Orange, Yellow, Red
-
-    public GameObject SkinCanvas;
-    public GameObject SettingsCanvas;
     public Text MoneyText;
+    [Header("Reset")]
+    public int LevelCount = 5; // For Reset
 
     private int toWhichSkinChange;
     private string toWhichSkinChangeStr;
@@ -154,21 +155,21 @@ public class SkinManager : MonoBehaviour
     public void ResetAll()
     {
         PlayerPrefs.SetString("Skin", "Green");
-        PlayerPrefs.SetInt("RedPlayer", 0);
-        PlayerPrefs.SetInt("OrangePlayer", 0);
-        PlayerPrefs.SetInt("YellowPlayer", 0);
-        PlayerPrefs.SetInt("BluePlayer", 0);
+        PlayerPrefs.SetInt("SkinInt", 0);
+        for (int i = 0; i < SkinNames.Length; i++)
+        {
+            PlayerPrefs.SetInt(SkinNames[i] + "Player", 0);
+        }
         PlayerPrefs.SetInt("Money", 0);
-        PlayerPrefs.SetInt("Level1Complete", 0);
-        PlayerPrefs.SetInt("Level2Complete", 0);
-        PlayerPrefs.SetInt("Level3Complete", 0);
-        PlayerPrefs.SetInt("Level4Complete", 0);
-        PlayerPrefs.SetInt("Level5Complete", 0);
-        PlayerPrefs.SetInt("Level1", 0);
-        PlayerPrefs.SetInt("Level2", 0);
-        PlayerPrefs.SetInt("Level3 ", 0);
-        PlayerPrefs.SetInt("Level4 ", 0);
-        PlayerPrefs.SetInt("Level5 ", 0);
+        for (int i = 1; i <= LevelCount; i++)
+        {
+            PlayerPrefs.SetInt("Level" + i + "Complete", 0);
+        }
+
+        for (int i = 1; i <= LevelCount; i++)
+        {
+            PlayerPrefs.SetInt("Level" + i, 0);
+        }
         PlayerPrefs.SetInt("htp", 0);
     }
 

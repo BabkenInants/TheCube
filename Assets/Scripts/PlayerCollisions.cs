@@ -8,6 +8,7 @@ public class PlayerCollisions : MonoBehaviour
 
     public GameObject WinCanvas;
     public PlayerController PlayerControllerScript;
+    public GameObject Blocker;
     public Timer TimerCanvas;
     private Timer TimerScript;
     [SerializeField]
@@ -25,7 +26,7 @@ public class PlayerCollisions : MonoBehaviour
         switch (collisioninfo.collider.tag)
         {
             case "Play": SceneManager.LoadScene("Choose level"); break;
-            case "Skins": SkinCanvas.SetActive(true); PlayerControllerScript.enabled = false; break;
+            case "Skins": SkinCanvas.SetActive(true); PlayerControllerScript.enabled = false; Blocker.SetActive(true); break;
             case "Settings": SettingsCanvas.SetActive(true); PlayerControllerScript.enabled = false; break;
             case "HTP": HTPCanvas.SetActive(true); PlayerControllerScript.enabled = false; break;
         }
@@ -63,6 +64,7 @@ public class PlayerCollisions : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex == 0)
         {
             SkinCanvas.SetActive(false);
+            Blocker.SetActive(false);
             PlayerControllerScript.enabled = true;
         }
     }
