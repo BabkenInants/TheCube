@@ -54,6 +54,7 @@ public class PlayerCollisions : MonoBehaviour
 
     private void Update()
     {
+        BrilliantText.text = Brilliant.ToString();
         if(Input.GetKeyDown(KeyCode.Escape) && SettingsCanvas.activeSelf)
         {
             SettingsCanvas.SetActive(false);
