@@ -27,9 +27,9 @@ public class PlayerCollisions : MonoBehaviour
         switch (collisioninfo.collider.tag)
         {
             case "Play": SceneManager.LoadScene("Choose level"); break;
-            case "Skins": SkinCanvas.SetActive(true); PlayerControllerScript.enabled = false; Blocker.SetActive(true); break;
-            case "Settings": SettingsCanvas.SetActive(true); PlayerControllerScript.enabled = false; break;
-            case "HTP": HTPCanvas.SetActive(true); PlayerControllerScript.enabled = false; break;
+            case "Skins": SkinCanvas.SetActive(true); Blocker.SetActive(true); break;
+            case "Settings": SettingsCanvas.SetActive(true); Blocker.SetActive(true); break;
+            case "HTP": HTPCanvas.SetActive(true); Blocker.SetActive(true); break;
         }
 
         //Finish
@@ -42,6 +42,7 @@ public class PlayerCollisions : MonoBehaviour
             int scene = SceneManager.GetActiveScene().buildIndex - 1;
             PlayerPrefs.SetInt("Level" + scene + "Complete", 1);  
             PlayerPrefs.SetInt("Brilliants", Brilliant);
+            TimerScript.BrilliantText.text = "Brilliants: " + Brilliant;
         }
         
         //Brilliants
@@ -54,29 +55,9 @@ public class PlayerCollisions : MonoBehaviour
 
     private void Update()
     {
-        BrilliantText.text = Brilliant.ToString();
-        if(Input.GetKeyDown(KeyCode.Escape) && SettingsCanvas.activeSelf)
+        if (SceneManager.GetActiveScene().buildIndex != 0 || SceneManager.GetActiveScene().buildIndex != 1)
         {
-            SettingsCanvas.SetActive(false);
-            PlayerControllerScript.enabled = true;
+            BrilliantText.text = Brilliant.ToString();
         }
-
-        if(Input.GetKeyDown(KeyCode.Escape) && HTPCanvas.activeSelf)
-        {
-            HTPCanvas.SetActive(false);
-            PlayerControllerScript.enabled = true;
-        }
-
-        if(Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        }
-        if (Input.GetKey(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            SkinCanvas.SetActive(false);
-            Blocker.SetActive(false);
-            PlayerControllerScript.enabled = true;
-        }
-        BrilliantText.text = Brilliant.ToString();
     }
 }

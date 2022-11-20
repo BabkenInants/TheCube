@@ -17,6 +17,12 @@ public class SkinManager : MonoBehaviour
     public Text MoneyText;
     [Header("Reset")]
     public int LevelCount = 5; // For Reset
+    [Header("Escape Btn")] 
+    public GameObject SettingsCanvas;
+    public GameObject HTPCanvas;
+    public GameObject SkinCanvas;
+    public GameObject Blocker;
+    
 
     private int toWhichSkinChange;
     private string toWhichSkinChangeStr;
@@ -149,6 +155,23 @@ public class SkinManager : MonoBehaviour
             {
                 PlayerSkins[PlayerPrefs.GetInt("SkinInt")].SetActive(true);
             }
+        }
+        if(Input.GetKeyUp(KeyCode.Escape) && SettingsCanvas.activeSelf)
+        {
+            SettingsCanvas.SetActive(false);
+            Blocker.SetActive(false);
+        }
+
+        if(Input.GetKeyUp(KeyCode.Escape) && HTPCanvas.activeSelf)
+        {
+            HTPCanvas.SetActive(false);
+            Blocker.SetActive(false);
+        }
+        
+        if (Input.GetKeyUp(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SkinCanvas.SetActive(false);
+            Blocker.SetActive(false);
         }
     }
 

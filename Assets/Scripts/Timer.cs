@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     public Text timerText;
     public GameObject[] Stars;
     public Text MoneyText;
+    public Text BrilliantText;
     [Header("Time values")]
     public Vector2[] LevelTime; //l1 - 10,15; l2 - 15,20; l3 - 10,15; l4 - 10,15; l5 - 15,20
 
@@ -104,6 +105,6 @@ public class Timer : MonoBehaviour
             Stars[i].SetActive(true);
         }
         PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + MoneyToSave);
-        MoneyText.text = MoneyToSave + "$";
+        MoneyText.text = "Money: " + MoneyToSave + "$";
     }
 }
