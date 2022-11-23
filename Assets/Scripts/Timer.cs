@@ -77,7 +77,7 @@ public class Timer : MonoBehaviour
                 continue;
             }
         }
-        lastSaveStars = PlayerPrefs.GetInt("Level1" + currentLevel);
+        lastSaveStars = PlayerPrefs.GetInt("Level" + currentLevel);
         if (time <= LevelTime[currentLevel - 1].x) {result = 3;}
         if (time <= LevelTime[currentLevel - 1].y && time > LevelTime[currentLevel - 1].x) {result = 2;}
         if (time > LevelTime[currentLevel - 1].y) {result = 1;}
@@ -86,12 +86,7 @@ public class Timer : MonoBehaviour
 
         if (lastSaveStars < result)
         {
-            switch (result)
-            {
-                case 3: PlayerPrefs.SetInt("Level" + (currentLevel), 3); break;
-                case 2: PlayerPrefs.SetInt("Level" + (currentLevel), 2); break;
-                case 1: PlayerPrefs.SetInt("Level" + (currentLevel), 1); break;
-            }
+            PlayerPrefs.SetInt("Level" + (currentLevel), result);
         }
         switch (result)
         {

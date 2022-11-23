@@ -7,6 +7,11 @@ public class SkinChanger : MonoBehaviour
 {
     public GameObject[] SkinGameObjects;//Green, Blue, Orange, Yellow, Red
 
+    private void Start()
+    {
+        SetSkin();
+    }
+
     private void SetSkin() //setting skin
     {
         for (int i = 0; i < SkinGameObjects.Length; i++)

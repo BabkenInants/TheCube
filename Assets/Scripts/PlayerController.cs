@@ -23,12 +23,12 @@ public class PlayerController : MonoBehaviour
             Speed = 500f;
         }
 
-        if (Math.Abs(Input.acceleration.y) > Math.Abs(Input.acceleration.x))
+        if (Math.Abs(Input.acceleration.y) >= Math.Abs(Input.acceleration.x))
         {
             rb.AddForce(Input.acceleration.y * Speed * Time.deltaTime, 0f, 0f);
         }
 
-        if (Math.Abs(Input.acceleration.y) < Math.Abs(Input.acceleration.x))
+        if (Math.Abs(Input.acceleration.y) <= Math.Abs(Input.acceleration.x))
         {
             rb.AddForce(0f, 0f, -Input.acceleration.x * Speed * Time.deltaTime);
         }
