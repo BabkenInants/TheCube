@@ -9,11 +9,7 @@ public class PlayerCollisions : MonoBehaviour
 
     public GameObject WinCanvas;
     public PlayerController PlayerControllerScript;
-    public GameObject Blocker;
     public Timer TimerCanvas;
-    public GameObject SkinCanvas;
-    public GameObject SettingsCanvas;
-    public GameObject HTPCanvas;
     public Text BrilliantText;
     
     private int Brilliant;
@@ -22,16 +18,6 @@ public class PlayerCollisions : MonoBehaviour
     
     private void OnCollisionEnter(Collision collisioninfo)
     {
-        //Main Menu
-
-        switch (collisioninfo.collider.tag)
-        {
-            case "Play": SceneManager.LoadScene("Choose level"); break;
-            case "Skins": SkinCanvas.SetActive(true); Blocker.SetActive(true); break;
-            case "Settings": SettingsCanvas.SetActive(true); Blocker.SetActive(true); break;
-            case "HTP": HTPCanvas.SetActive(true); Blocker.SetActive(true); break;
-        }
-
         //Finish
         if(collisioninfo.collider.tag == "Finish")
         {
@@ -55,7 +41,7 @@ public class PlayerCollisions : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0 || SceneManager.GetActiveScene().buildIndex != 1)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             BrilliantText.text = Brilliant.ToString();
         }

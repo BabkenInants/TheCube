@@ -19,9 +19,6 @@ public class SkinManager : MonoBehaviour
     public int LevelCount = 5; // For Reset
     [Header("Escape Btn")] 
     public GameObject SettingsCanvas;
-    public GameObject HTPCanvas;
-    public GameObject SkinCanvas;
-    public GameObject Blocker;
     
 
     private int toWhichSkinChange;
@@ -159,19 +156,11 @@ public class SkinManager : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Escape) && SettingsCanvas.activeSelf)
         {
             SettingsCanvas.SetActive(false);
-            Blocker.SetActive(false);
-        }
-
-        if(Input.GetKeyUp(KeyCode.Escape) && HTPCanvas.activeSelf)
-        {
-            HTPCanvas.SetActive(false);
-            Blocker.SetActive(false);
         }
         
         if (Input.GetKeyUp(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex == 0)
         {
-            SkinCanvas.SetActive(false);
-            Blocker.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

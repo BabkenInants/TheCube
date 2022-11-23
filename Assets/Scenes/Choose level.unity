@@ -285,8 +285,8 @@ GameObject:
   - component: {fileID: 315041914}
   - component: {fileID: 315041913}
   - component: {fileID: 315041912}
-  - component: {fileID: 315041916}
   - component: {fileID: 315041917}
+  - component: {fileID: 315041916}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -389,10 +389,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 315041911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77afe19675b5fb4468d7e8a8c54450ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 4321d56c959aa11428d8b687b1ac5f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PauseCanvas: {fileID: 0}
+  TimerCanvas: {fileID: 0}
 --- !u!114 &315041917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,8 +579,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 315041916}
-        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -731,8 +732,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 315041916}
-        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1263,8 +1264,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 315041916}
-        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2214,7 +2215,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.4575472, g: 0.6676865, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.27450982, g: 0.7921569, b: 0.98039216, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2349,8 +2350,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 315041916}
-        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2723,9 +2724,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 315041916}
-        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
+        m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
+        m_MethodName: BackToMainMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2935,8 +2936,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 315041916}
-        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_TargetAssemblyTypeName: ButtonsInGame, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
