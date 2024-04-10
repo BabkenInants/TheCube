@@ -19,7 +19,7 @@ public class PlayerCollisions : MonoBehaviour
     private void OnCollisionEnter(Collision collisioninfo)
     {
         //Finish
-        if(collisioninfo.collider.tag == "Finish")
+        if("Finish" == collisioninfo.collider.tag)
         {
             PlayerControllerScript.enabled = false;
             WinCanvas.SetActive(true);
@@ -32,7 +32,7 @@ public class PlayerCollisions : MonoBehaviour
         }
         
         //Brilliants
-        if (collisioninfo.collider.tag == "Brilliant")
+        if ("Brilliant" == collisioninfo.collider.tag)
         {
             Brilliant++;
             Destroy(collisioninfo.collider.gameObject);

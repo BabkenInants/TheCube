@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     private float Speed;
-    private Vector3 accel;
 
     void Update()
     {
@@ -28,7 +27,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Input.acceleration.y * Speed * Time.deltaTime, 0f, 0f);
         }
 
-        if (Math.Abs(Input.acceleration.y) <= Math.Abs(Input.acceleration.x))
+        if (Math.Abs(Input.acceleration.y) < Math.Abs(Input.acceleration.x))
         {
             rb.AddForce(0f, 0f, -Input.acceleration.x * Speed * Time.deltaTime);
         }
